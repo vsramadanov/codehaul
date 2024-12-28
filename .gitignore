@@ -1,0 +1,9 @@
+# Yocto artefacts
+*.log
+*.lock
+*.sock
+
+build/tmp/
+build/cache/
+build/downloads/
+build/sstate-cache/
