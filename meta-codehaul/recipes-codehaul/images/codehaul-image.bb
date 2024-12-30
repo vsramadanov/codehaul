@@ -1,4 +1,4 @@
-include recipes-core/images/core-image-minimal.bb 
+require recipes-core/images/core-image-base.bb
 
-IMAGE_INSTALL:append = " libstdc++ mtd-utils" 
+IMAGE_INSTALL:append = " systemd libstdc++ mtd-utils" 
 IMAGE_INSTALL:append = " openssh openssl openssh-sftp-server" 
