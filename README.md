@@ -27,7 +27,7 @@ sudo dd if=sdimage-your-name.direct of=/dev/your-sd-card
 
 ### Fix SD card image
 
-(TODO: add these changes to yocto)
+(TODO: add these changes to yocto -- fixed, that paragraph is outdated)
 To turn on serial console and boot log, do the following steps:
 - find PARTUUID
 ```
