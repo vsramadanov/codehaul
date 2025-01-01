@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeHaul Project</title>
+    <link rel="stylesheet" href="/codemirror/codemirror.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .CodeMirror {
+            height: 600px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Редактор кода C++ с подсветкой синтаксиса</h1>
+    <textarea id="codeInput"></textarea>
+
+    <script src="/codemirror/codemirror.min.js"></script>
+    <script src="/codemirror/clike.min.js"></script>
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById("codeInput"), {
+            lineNumbers: true,
+            mode: "text/x-c++src",
+            theme: "default",
+            lineWrapping: true
+        });
+    </script>
+
+</body>
+</html>
