@@ -17,12 +17,18 @@
             border-radius: 5px;
             overflow-y: auto;
         }
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Редактор кода C++ с подсветкой синтаксиса</h1>
+    <h1>Provide your solution</h1>
     <textarea id="codeInput"></textarea>
+    <button id="submitButton">Submit</button>
 
     <script src="/codemirror/codemirror.min.js"></script>
     <script src="/codemirror/clike.min.js"></script>
@@ -32,6 +38,22 @@
             mode: "text/x-c++src",
             theme: "default",
             lineWrapping: true
+        });
+        document.getElementById("submitButton").addEventListener("click", function() {
+            var code = editor.getValue();
+            fetch('/codeinput', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ code: code })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                alert(data.message);
+            })
+            .catch(error => console.error('ERROR:', error));
         });
     </script>
 
