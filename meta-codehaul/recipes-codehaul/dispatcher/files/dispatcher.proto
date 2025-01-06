@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package codehaul.compilation;
+
+message TaskRequest {
+
+}
+
+message Task {
+    int32 id = 1;
+    string code = 2;
+}
+
+message CompilationError {
+    string description = 1;
+}
+
+message ExecStatus {
+    string description = 1;
+}
+
+message TaskResult {
+    int32 id = 1;
+    oneof payload {
+        CompilationError error  = 10;
+        ExecStatus       status = 20;
+    }
+}
+
+message TaskResponce {
+}
+
+service Dispatcher {
+   rpc GetTask(TaskRequest) returns (Task) {}
+   rpc SetResult(TaskResult) returns (TaskResponce) {}
+}
