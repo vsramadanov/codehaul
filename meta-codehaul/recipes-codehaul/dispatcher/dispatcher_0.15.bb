@@ -2,6 +2,8 @@ SUMMARY = "Dispatches tasks between workers and IDP"
 DESCRIPTION = ""
 LICENSE = "CLOSED"
 
+inherit pkgconfig
+
 SRC_URI = "file://dispatcher.cpp \
            file://dispatcher.proto \
            file://makefile"
@@ -9,7 +11,6 @@ SRC_URI = "file://dispatcher.cpp \
 S = "${WORKDIR}"
 
 DEPENDS = "fcgi grpc protobuf grpc-native protobuf-native"
-RDEPENDS_${PN} += "libstdc++"
 
 do_configure() {
     oe_runmake out/dispatcher.pb.cc
