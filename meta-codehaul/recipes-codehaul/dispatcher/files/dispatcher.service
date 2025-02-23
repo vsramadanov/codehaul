@@ -1,0 +1,8 @@
+[Unit]
+Description=Dispathes tasks from WEB UI to workers
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/dispatcher --worker-socket unix://tmp/worker.sock --input-socket /tmp/input.sock
+Restart=on-failure

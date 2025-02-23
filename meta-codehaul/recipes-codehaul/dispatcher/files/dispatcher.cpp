@@ -22,7 +22,7 @@ void printHelp() {
               << "Options:\n"
               << "  -h, --help              Show this help message\n"
               << "  -l, --log-level LEVEL   Set log level (DEBUG, ERROR, WARNING)\n"
-              << "  -g, --grpc-socket SOCKET Specify gRPC socket\n"
+              << "  -g, --worker-socket SOCKET Specify gRPC socket\n"
               << "  -i, --input-socket SOCKET Specify input socket\n";
 }
 
@@ -40,7 +40,7 @@ bool parseArgs(int argc, char* argv[]) {
     struct option long_options[] = {
         {"help", no_argument, nullptr, 'h'},
         {"log-level", required_argument, nullptr, 'l'},
-        {"grpc-socket", required_argument, nullptr, 'g'},
+        {"worker-socket", required_argument, nullptr, 'w'},
         {"input-socket", required_argument, nullptr, 'i'},
         {nullptr, 0, nullptr, 0} // End of options
     };
@@ -58,7 +58,7 @@ bool parseArgs(int argc, char* argv[]) {
                 return 1;
             }
             break;
-        case 'g':
+        case 'w':
             args.grpcSocket = optarg;
             break;
         case 'i':
